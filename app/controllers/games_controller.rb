@@ -4,23 +4,22 @@ class GamesController < ApplicationController
 
   def new
     @letters = random
-     
   end
 
   def score
     userwords = params[:result]
     letters = params[:letters]
     session[:score] = "0"
-    if isValid?(letters.split(""), userwords.split(""))
+    if !userwords.nil? && isValid?(letters.split(""), userwords.split(""))
       if validWord?(userwords)
         result = validWord?(userwords)
         session[:score] = result["length"]
         @response = " #{userwords} IS GOOD !!!"
       else
-        @response = "Your word: #{userwords} is not english word"
+        @response = "Your word: #{ userwords} is not english word"
       end
     else
-      @response = "Your word: #{userwords} is invalid with letters: #{letters} "
+      @response = "Your word: #{ userwords} is invalid with letters: #{letters} "
     end
   end
   

@@ -1,5 +1,6 @@
 <h1>Your Result !!!</h1>
-
-<p> <%= @response %> </p>
-<p> Your score is <%= session[:score] %> </p>
-<%= link_to "Try again", new_path %>
+<div id="result">
+  <p id="response"> <%= @response %> </p>
+  <p id="score"> Your score is : <br> <span id="score-num"><%=  session[:score] %> </span></p>
+  <a id="link" href="<%=new_path%>">Try again</a>
+</div>
